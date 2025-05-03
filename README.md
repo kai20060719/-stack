@@ -145,6 +145,15 @@ void func2(int arg1, int arg2)
     print_stack();
     func3(77);
     // func3의 스택 프레임 제거 (함수 에필로그 + pop)
+
+    SP -= 2;
+
+    FP = call_stack[SP];
+    SP -= 1;
+
+    SP -= 1;
+
+    SP -= 1;
     print_stack();
 }
 
