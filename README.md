@@ -104,6 +104,7 @@ void func1(int arg1, int arg2, int arg3)
     strcpy(stack_info[SP], "지역변수1");
 
     print_stack();
+
     func2(11, 13);
     // func2의 스택 프레임 제거 (함수 에필로그 + pop)
     SP -= 1;
@@ -114,6 +115,7 @@ void func1(int arg1, int arg2, int arg3)
     SP -= 1;
 
     SP -= 2;
+
     print_stack();
 }
 
@@ -142,7 +144,9 @@ void func2(int arg1, int arg2)
     SP += 1;
     call_stack[SP] = var_2;
     strcpy(stack_info[SP], "지역변수1");
+
     print_stack();
+
     func3(77);
     // func3의 스택 프레임 제거 (함수 에필로그 + pop)
 
@@ -154,6 +158,7 @@ void func2(int arg1, int arg2)
     SP -= 1;
 
     SP -= 1;
+
     print_stack();
 }
 
@@ -195,6 +200,16 @@ int main()
 {
     func1(1, 2, 3);
     // func1의 스택 프레임 제거 (함수 에필로그 + pop)
+
+    SP -= 1;
+
+    FP = call_stack[SP];
+    SP -= 1;
+
+    SP -= 1;
+
+    SP -= 3;
+
     print_stack();
     return 0;
 }
