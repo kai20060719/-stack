@@ -114,7 +114,8 @@ void func1(int arg1, int arg2, int arg3)
 
     SP -= 1;
 
-    SP -= 2;
+    SP -= 1;
+    SP -= 1;
 
     print_stack();
 }
@@ -208,7 +209,9 @@ int main()
 
     SP -= 1;
 
-    SP -= 3;
+    SP -= 1;
+    SP -= 1;
+    SP -= 1;
 
     print_stack();
     return 0;
