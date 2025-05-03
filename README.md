@@ -115,6 +115,25 @@ void func2(int arg1, int arg2)
     int var_2 = 200;
 
     // func2의 스택 프레임 형성 (함수 프롤로그 + push)
+    SP += 1;
+    call_stack[SP] = arg1;
+    strcpy(stack_info[SP], "매개변수1");
+    SP += 1;
+    call_stack[SP] = arg2;
+    strcpy(stack_info[SP], "매개변수2");
+
+    SP += 1;
+    call_stack[SP] = -1;
+    strcpy(stack_info[SP], "Return Address");
+
+    SP += 1;
+    call_stack[SP] = FP;
+    strcpy(stack_info[SP], "func1 함수의 SFP");
+    FP = SP;
+
+    SP += 1;
+    call_stack[SP] = var_2;
+    strcpy(stack_info[SP], "지역변수1");
     print_stack();
     func3(77);
     // func3의 스택 프레임 제거 (함수 에필로그 + pop)
@@ -128,6 +147,27 @@ void func3(int arg1)
     int var_4 = 400;
 
     // func3의 스택 프레임 형성 (함수 프롤로그 + push)
+
+    SP += 1;
+    call_stack[SP] = arg1;
+    strcpy(stack_info[SP], "매개변수1");
+
+    SP += 1;
+    call_stack[SP] = -1;
+    strcpy(stack_info[SP], "Return Address");
+
+    SP += 1;
+    call_stack[SP] = FP;
+    strcpy(stack_info[SP], "func2 함수의 SFP");
+    FP = SP;
+
+    SP += 1;
+    call_stack[SP] = var_3;
+    strcpy(stack_info[SP], "지역변수1");
+    SP += 1;
+    call_stack[SP] = var_4;
+    strcpy(stack_info[SP], "지역변수2");
+
 
     print_stack();
 }
