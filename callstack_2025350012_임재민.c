@@ -81,13 +81,13 @@ void func1(int arg1, int arg2, int arg3)
 
     // func1의 스택 프레임 형성 (함수 프롤로그 + push)
     SP += 1;
-    call_stack[SP] = arg1;
+    call_stack[SP] = arg3;
     strcpy(stack_info[SP], "매개변수1");
     SP += 1;
     call_stack[SP] = arg2;
     strcpy(stack_info[SP], "매개변수2");
     SP += 1;
-    call_stack[SP] = arg3;
+    call_stack[SP] = arg1;
     strcpy(stack_info[SP], "매개변수3");
     
     SP += 1;
@@ -127,10 +127,10 @@ void func2(int arg1, int arg2)
 
     // func2의 스택 프레임 형성 (함수 프롤로그 + push)
     SP += 1;
-    call_stack[SP] = arg1;
+    call_stack[SP] = arg2;
     strcpy(stack_info[SP], "매개변수1");
     SP += 1;
-    call_stack[SP] = arg2;
+    call_stack[SP] = arg1;
     strcpy(stack_info[SP], "매개변수2");
 
     SP += 1;
